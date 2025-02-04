@@ -48,7 +48,7 @@ dependencies:
   go_router: ^10.1.1
 
   # utils
-  flutter_native_splash: ^2.2.8
+  flutter_native_splash: ^2.4.2
   device_info_plus: ^10.0.1
   faker: ^2.1.0
 
@@ -57,7 +57,7 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_secure_storage: ^8.0.0
   package_info_plus: ^4.0.2
-  flutter_local_notifications: ^9.3.3
+  flutter_local_notifications: ^17.2.2
   in_app_review: ^2.0.6
   share_plus: ^7.0.2
 
@@ -76,7 +76,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.1
   build_runner: ^2.3.2
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
