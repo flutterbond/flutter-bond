@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ps.app.bond">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
    <application
         android:label="bond"
         android:name="${applicationName}"
