@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'bond_popup_menu_item.dart';
 
 class BondPopMenuButton extends ConsumerWidget {
-  const BondPopMenuButton({Key? key}) : super(key: key);
+  const BondPopMenuButton({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -9,10 +9,10 @@ class User extends Model {
   final String? email;
 
   const User({
-    required int id,
+    required super.id,
     this.name,
     this.email,
-  }) : super(id: id);
+  });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 

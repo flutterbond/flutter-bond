@@ -1,4 +1,4 @@
-library auth_routes;
+library;
 
 import 'presentation/login_page.dart';
 import 'presentation/register_page.dart';

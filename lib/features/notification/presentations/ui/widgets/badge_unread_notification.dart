@@ -4,8 +4,8 @@ import 'package:bond_core/bond_core.dart';
 class BadgeUnreadNotification extends StatelessWidget {
   const BadgeUnreadNotification({
     this.isRead = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final bool isRead;
 

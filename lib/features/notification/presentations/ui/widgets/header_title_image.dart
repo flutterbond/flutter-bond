@@ -5,8 +5,8 @@ class HeaderTitleImage extends StatelessWidget {
   const HeaderTitleImage({
     required this.senderName,
     required this.senderImage,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String senderName;
   final String senderImage;

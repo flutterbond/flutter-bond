@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
-    Key? key,
+    super.key,
     required this.title,
     this.enabled = true,
     this.loading = false,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String title;
   final bool enabled;

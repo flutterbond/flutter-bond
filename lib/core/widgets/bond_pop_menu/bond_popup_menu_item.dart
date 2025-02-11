@@ -4,12 +4,11 @@ enum Menu { theme, language, logout, notifications }
 
 class BondPopupBondMenuItem extends PopupMenuItem<Menu> {
   BondPopupBondMenuItem({
-    Key? key,
+    super.key,
     required Menu value,
     required String title,
     required Icon icon,
   }) : super(
-          key: key,
           value: value,
           child: Row(
             children: [
