@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:open_store/open_store.dart';
 
 class SoftUpdatePage extends StatelessWidget {
-  const SoftUpdatePage({Key? key, required this.message}) : super(key: key);
+  const SoftUpdatePage({super.key, required this.message});
 
   final String message;
 
@@ -29,7 +29,10 @@ class SoftUpdatePage extends StatelessWidget {
                 onPressed: () => context.pop(),
                 icon: SvgPicture.asset(
                   AppIcons.close,
-                  color: Colors.grey,
+                  colorFilter: ColorFilter.mode(
+                    Colors.grey,
+                    BlendMode.srcIn,
+                  ),
                   width: 14,
                   height: 14,
                 ),

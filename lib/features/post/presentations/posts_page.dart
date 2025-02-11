@@ -6,7 +6,7 @@ import 'views/home_app_bar.dart';
 import 'views/post_item.dart';
 
 class PostsPage extends ConsumerWidget {
-  const PostsPage({Key? key}) : super(key: key);
+  const PostsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

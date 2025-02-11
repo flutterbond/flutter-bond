@@ -1,4 +1,4 @@
-library app_analytics;
+library;
 
 import 'dart:developer';
 

@@ -1,3 +1,3 @@
-library app_analytics;
+library;
 
 export 'utils/device_info.dart';

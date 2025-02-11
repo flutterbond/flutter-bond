@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'views/register/register_form.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {

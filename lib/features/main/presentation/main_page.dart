@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({
-    Key? key,
+    super.key,
     required this.body,
-  }) : super(key: key);
+  });
 
   final StatefulNavigationShell body;
 

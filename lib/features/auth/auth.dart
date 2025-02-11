@@ -1,4 +1,4 @@
-library auth;
+library;
 
 import 'package:bond_cache/bond_cache.dart';
 

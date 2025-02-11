@@ -7,7 +7,7 @@ import 'core/app_theme.dart';
 import 'features/app/app_providers.dart';
 
 class BondApp extends ConsumerWidget {
-  const BondApp({Key? key}) : super(key: key);
+  const BondApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

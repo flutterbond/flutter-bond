@@ -12,8 +12,8 @@ class NotificationItem extends StatelessWidget {
     required this.notificationTitle,
     required this.isRead,
     required this.createAt,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final VoidCallback onTap;
   final String senderName;

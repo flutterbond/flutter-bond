@@ -8,8 +8,8 @@ import 'widgets/notification_item.dart';
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({
     required this.notificationCenterProvider,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final NotificationCenterProvider notificationCenterProvider;
 

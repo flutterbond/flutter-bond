@@ -5,7 +5,7 @@ import 'package:bond_core/bond_core.dart';
 import 'package:go_router/go_router.dart';
 
 class NewAccountView extends StatelessWidget {
-  const NewAccountView({Key? key}) : super(key: key);
+  const NewAccountView({super.key});
 
   @override
   Widget build(BuildContext context) {

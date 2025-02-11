@@ -26,8 +26,6 @@ extension XThemeMode on ThemeMode {
         return 'light';
       case ThemeMode.system:
         return 'system';
-      default:
-        return 'system';
     }
   }
 

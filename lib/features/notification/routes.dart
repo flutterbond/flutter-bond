@@ -1,4 +1,4 @@
-library notification_routes;
+library;
 
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond_core/bond_core.dart';

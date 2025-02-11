@@ -1,4 +1,4 @@
-library main_routes;
+library;
 
 import 'package:bond/features/main/presentation/main_page.dart';
 import 'package:bond/features/more/presentation/more_page.dart';

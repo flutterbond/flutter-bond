@@ -1,4 +1,4 @@
-library intgrations_routes;
+library;
 
 import 'package:bond/core/route_helpers.dart';
 import 'package:go_router/go_router.dart';
