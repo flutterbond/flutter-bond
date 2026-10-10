@@ -14,7 +14,9 @@ class BondPopupBondMenuItem extends PopupMenuItem<Menu> {
             children: [
               icon,
               const SizedBox(width: 8),
-              Text(title),
+              Flexible(
+                child: Text(title, overflow: TextOverflow.ellipsis),
+              ),
             ],
           ),
         );
