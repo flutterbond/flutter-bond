@@ -45,8 +45,10 @@ class PostsPage extends ConsumerWidget {
                       );
                     }).toList(),
                   ),
-                  if (posts.isLoading) const CircularProgressIndicator
-                      .adaptive(),
+                  if (posts.isLoading)
+                    const CircularProgressIndicator.adaptive(
+                      key: AppKeys.postsLoadingMore,
+                    ),
                 ],
               ),
             ),

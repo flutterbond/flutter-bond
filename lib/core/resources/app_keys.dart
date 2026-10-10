@@ -12,6 +12,7 @@ class AppKeys {
   static const postsPage = Key('posts_page');
   static const postsLoading = Key('posts_loading');
   static const postsGrid = Key('posts_grid');
+  static const postsLoadingMore = Key('posts_loading_more');
   static const postsError = Key('posts_error');
   static const postDetailsPage = Key('post_details_page');
   static const shareButton = Key('share_button');
