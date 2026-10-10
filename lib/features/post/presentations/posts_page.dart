@@ -1,3 +1,4 @@
+import 'package:bond/core/resources/app_keys.dart';
 import 'package:bond/features/post/presentations/providers/posts_provider.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,15 +14,20 @@ class PostsPage extends ConsumerWidget {
     final postsState = ref.watch(postsProvider);
     final postsController = ref.read(postsProvider.notifier);
     return Scaffold(
+      key: AppKeys.postsPage,
       appBar: const HomeAppBar(),
       body: postsState.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => const Center(
+          key: AppKeys.postsLoading,
+          child: CircularProgressIndicator(),
+        ),
         data: (posts) =>
             SingleChildScrollView(
               controller: postsController.scrollController,
               child: Column(
                 children: [
                   GridView.count(
+                    key: AppKeys.postsGrid,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.all(16),
@@ -38,7 +44,10 @@ class PostsPage extends ConsumerWidget {
                 ],
               ),
             ),
-        error: (error, stackTrace) => Center(child: Text(error.toString())),
+        error: (error, stackTrace) => Center(
+          key: AppKeys.postsError,
+          child: Text(error.toString()),
+        ),
       ),
     );
   }

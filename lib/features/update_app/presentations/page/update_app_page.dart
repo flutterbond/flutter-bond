@@ -2,6 +2,7 @@ import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/app_review.dart';
 import 'package:bond/core/app_widgets.dart';
 import 'package:bond/core/resources/app_assets.dart';
+import 'package:bond/core/resources/app_keys.dart';
 import 'package:material_ui/material_ui.dart';
 
 class UpdateAppPage extends StatelessWidget {
@@ -12,6 +13,7 @@ class UpdateAppPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: AppKeys.updateAppPage,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
@@ -41,6 +43,7 @@ class UpdateAppPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 87.0),
                     child: Text(
                       message,
+                      key: AppKeys.updateAppMessage,
                       textAlign: TextAlign.center,
                     ),
                   ),
