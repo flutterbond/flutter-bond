@@ -8,57 +8,24 @@ on:
 
 jobs:
   build-and-test:
-
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '11'
+      - uses: actions/checkout@v4
+
       - uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          flutter-version-file: .fvmrc
           cache: true
 
-      - name: Create env file
-        env:
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          CONNECT_TIMEOUT: 100000
-          SEND_TIMEOUT: 1000000
-          RECEIVE_TIMEOUT: 1000000
-          RECEIVE_DATA_WHEN_STATUS_ERROR: true
-        run: |
-          echo "{" >> .env.json
-          echo "API_BASE_URL:$API_BASE_URL," >> .env.json
-          echo "CONNECT_TIMEOUT:$CONNECT_TIMEOUT," >> .env.json
-          echo "SEND_TIMEOUT:$SEND_TIMEOUT," >> .env.json
-          echo "RECEIVE_TIMEOUT:$RECEIVE_TIMEOUT," >> .env.json
-          echo "RECEIVE_DATA_WHEN_STATUS_ERROR:$RECEIVE_DATA_WHEN_STATUS_ERROR" >> .env.json
-          echo "}" >> .env.json
-
-      - name: Create Staging env file
-        env:
-          API_BASE_URL: ${{ secrets.STAGING_API_BASE_URL}}
-          CONNECT_TIMEOUT: 100000
-          SEND_TIMEOUT: 1000000
-          RECEIVE_TIMEOUT: 1000000
-          RECEIVE_DATA_WHEN_STATUS_ERROR: true
-        run: |
-          echo "{" >> .env.staging.json
-          echo "API_BASE_URL:$API_BASE_URL," >> .env.staging.json
-          echo "CONNECT_TIMEOUT:$CONNECT_TIMEOUT," >> .env.staging.json
-          echo "SEND_TIMEOUT:$SEND_TIMEOUT," >> .env.staging.json
-          echo "RECEIVE_TIMEOUT:$RECEIVE_TIMEOUT," >> .env.staging.json
-          echo "RECEIVE_DATA_WHEN_STATUS_ERROR:$RECEIVE_DATA_WHEN_STATUS_ERROR" >> .env.staging.json
-          echo "}" >> .env.staging.json
-
-      - name: Install Dependencies
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Analyze
-        run: flutter analyze lib
+        run: flutter analyze
 
       - name: Test
         run: flutter test
+
+      - name: Build iOS (Staging, simulator)
+        run: flutter build ios --simulator --debug --flavor Staging --dart-define-from-file=env.example.json
