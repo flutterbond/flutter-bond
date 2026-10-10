@@ -35,10 +35,10 @@ class SecureStorageCacheDriver extends CacheDriver {
     try {
       final jsonString = jsonEncode(data);
       await _storage.write(key: key, value: jsonString);
-      return Future.value(true);
+      return true;
     } catch (error, stack) {
       log('store error: $error , stackTrace : $stack');
-      return Future.value(false);
+      return false;
     } finally {
       await loadAll();
     }
