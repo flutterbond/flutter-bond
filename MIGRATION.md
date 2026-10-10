@@ -40,7 +40,7 @@ order.
 | json_serializable | dependency | dev dependency (6.14.1) |
 | open_store, faker | used | removed |
 
-Bond packages: see [bond-core/MIGRATION.md](https://github.com/onestudio-co/bond-core/blob/main/MIGRATION.md).
+Bond packages: see [bond-core/MIGRATION.md](https://github.com/flutterbond/bond-core/blob/main/MIGRATION.md).
 
 ## 3. Dart code
 

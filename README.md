@@ -1,10 +1,10 @@
 # Flutter Bond
 
-<p align="center"><a href="#" target="_blank"><img src="https://raw.githubusercontent.com/onestudio-co/flutter-bond/5e75d3b52e12536478dc9b40455299f3f4e5c9cc/assets/images/app_logo.svg" width="400" alt="Flutter Bond Logo"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://raw.githubusercontent.com/flutterbond/flutter-bond/5e75d3b52e12536478dc9b40455299f3f4e5c9cc/assets/images/app_logo.svg" width="400" alt="Flutter Bond Logo"></a></p>
 
 
-[![Build](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml/badge.svg)](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml)
-[![Free Palestine](https://img.shields.io/badge/Free_Palestine-%20%F0%9F%87%B5%F0%9F%87%B8-green)](https://github.com/onestudio-co/flutter-bond)
+[![Build](https://github.com/flutterbond/flutter-bond/actions/workflows/build.yml/badge.svg)](https://github.com/flutterbond/flutter-bond/actions/workflows/build.yml)
+[![Free Palestine](https://img.shields.io/badge/Free_Palestine-%20%F0%9F%87%B5%F0%9F%87%B8-green)](https://github.com/flutterbond/flutter-bond)
 
 Flutter Bond is a Palestinian product proudly developed in Gaza by a passionate Palestinian engineer. This template serves as One Studio’s public framework for all internal Flutter applications. We invite you to use this template for your projects and contribute to its ongoing improvement.
 
@@ -63,16 +63,16 @@ Upgrading a v1 app: see [MIGRATION.md](MIGRATION.md).
 
 ## Learning Flutter Bond
 
-Flutter Bond comes with comprehensive documentation to get you up and running in no time. You can refer to our [Bond Docs Repo](https://github.com/onestudio-co/bond-docs) for detailed guides and tutorials.
+Flutter Bond comes with comprehensive documentation to get you up and running in no time. You can refer to our [Bond Docs Repo](https://github.com/flutterbond/bond-docs) for detailed guides and tutorials.
 
 For hands-on experience, you can follow the Flutter Bond tutorial series to build a fully functional application from scratch.
 
 If you prefer a more interactive learning experience, we're in the process of developing a complete video tutorial library.
 
 ## Flutter Bond Repositories
-- [Bond Core](https://github.com/onestudio-co/bond-core) - The core architecture.
-- [Bond CLI](https://github.com/onestudio-co/bond-cli) - The Command Line Interface for Flutter Bond.
-- [Bond Docs](https://github.com/onestudio-co/bond-docs) - Comprehensive Documentation.
+- [Bond Core](https://github.com/flutterbond/bond-core) - The core architecture.
+- [Bond CLI](https://github.com/flutterbond/bond-cli) - The Command Line Interface for Flutter Bond.
+- [Bond Docs](https://github.com/flutterbond/bond-docs) - Comprehensive Documentation.
 
 ## Sponsors
 
@@ -80,7 +80,7 @@ We are actively looking for sponsors to help us maintain and grow this project. 
 
 ## Contributing
 
-We welcome contributions from the community. For guidelines on how to contribute, please refer to our [Contribution Guidelines](https://github.com/onestudio-co/flutter-bond/blob/main/CONTRIBUTING.md).
+We welcome contributions from the community. For guidelines on how to contribute, please refer to our [Contribution Guidelines](https://github.com/flutterbond/flutter-bond/blob/main/CONTRIBUTING.md).
 
 ## Security Vulnerabilities
 
