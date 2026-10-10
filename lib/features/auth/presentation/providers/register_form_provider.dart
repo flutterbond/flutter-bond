@@ -48,8 +48,9 @@ class RegisterFormController extends FormStateNotifier<User, Error> {
   }
 }
 
+// Auto-disposed with the page, so the fields start empty on every visit.
 final registerProvider =
-    NotifierProvider<RegisterFormController, BondFormState<User, Error>>(
+    NotifierProvider.autoDispose<RegisterFormController, BondFormState<User, Error>>(
   () => RegisterFormController(
     sl(),
   ),

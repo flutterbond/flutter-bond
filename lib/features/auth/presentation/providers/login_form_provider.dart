@@ -48,8 +48,9 @@ class LoginFormController extends FormStateNotifier<User, Error> {
   }
 }
 
+// Auto-disposed with the page, so the fields start empty on every visit.
 final loginProvider =
-    NotifierProvider<LoginFormController, BondFormState<User, Error>>(
+    NotifierProvider.autoDispose<LoginFormController, BondFormState<User, Error>>(
   () => LoginFormController(
     sl(),
   ),
