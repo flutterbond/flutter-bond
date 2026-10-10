@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:bond_cache/bond_cache.dart';
@@ -9,7 +8,7 @@ class LocalNotifier extends Notifier<Locale> {
   Locale build() => Locale(
         Cache.get(
           'language',
-          defaultValue: Platform.localeName,
+          defaultValue: PlatformDispatcher.instance.locale.languageCode,
         ),
       );
 
