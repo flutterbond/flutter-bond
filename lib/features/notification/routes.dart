@@ -3,7 +3,7 @@ library;
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond_core/bond_core.dart';
 import 'package:bond_notifications/bond_notifications.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 
 import 'presentations/ui/notifications_page.dart';

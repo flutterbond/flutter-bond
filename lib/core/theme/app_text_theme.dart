@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // This code is copied from https://m2.material.io/design/typography/the-type-system.html#type-scale

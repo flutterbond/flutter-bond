@@ -1,5 +1,6 @@
 import 'package:bond/core/app_localizations.dart';
-import 'package:flutter/material.dart';
+import 'package:bond/core/resources/app_keys.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 
 class MainPage extends StatelessWidget {
@@ -28,11 +29,11 @@ class MainPage extends StatelessWidget {
           onTap: body.goBranch,
           items: [
             BottomNavigationBarItem(
-              icon: const Icon(Icons.home),
+              icon: const Icon(Icons.home, key: AppKeys.homeTab),
               label: context.localizations.navigation_bar_home,
             ),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.collections),
+              icon: const Icon(Icons.collections, key: AppKeys.moreTab),
               label: context.localizations.navigation_bar_collections,
             ),
           ],

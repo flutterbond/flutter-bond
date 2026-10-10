@@ -12,17 +12,29 @@ class FirebaseServiceProvider extends ServiceProvider {
   Future<void> register(GetIt it) async {
     final packageInfo = await PackageInfo.fromPlatform();
     it.registerSingleton(packageInfo);
-    final firebaseApp = await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    final firebaseApp = await _initializeFirebase();
     it.registerSingleton(firebaseApp);
 
     if (!kIsWeb) {
       final remoteConfig = FirebaseRemoteConfig.instance;
-      remoteConfig.setDefaults(UpdateAppDefaultValue.defaultParameters);
-      await remoteConfig.fetchAndActivate();
-
+      await remoteConfig.setDefaults(UpdateAppDefaultValue.defaultParameters);
+      // Fetched and activated in the background by UpdateAppService, so an
+      // offline or slow network doesn't block or abort start-up.
       it.registerLazySingleton(() => remoteConfig);
+    }
+  }
+
+  Future<FirebaseApp> _initializeFirebase() async {
+    try {
+      return await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    } on FirebaseException catch (error) {
+      // The native SDK may already have created the default app from
+      // GoogleService-Info.plist / google-services.json with different
+      // values (e.g. a placeholder plist); reuse that app.
+      if (error.code != 'duplicate-app') rethrow;
+      return Firebase.app();
     }
   }
 }

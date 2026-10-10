@@ -1,5 +1,6 @@
+import 'package:bond/core/resources/app_keys.dart';
 import 'package:bond/features/post/data/models/post.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'providers/post_provider.dart';
@@ -42,10 +43,12 @@ class _PostDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: AppKeys.postDetailsPage,
       appBar: AppBar(
         title: Text(post.author.name),
         actions: [
           ShareButton(
+            key: AppKeys.shareButton,
             postImageUrl: post.urls.full, // Pass the post image URL
           )
         ],

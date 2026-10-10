@@ -4,7 +4,7 @@ import 'package:bond/features/auth/auth.dart';
 import 'package:bond_core/bond_core.dart';
 import 'package:bond_notifications/bond_notifications.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:universal_platform/universal_platform.dart';

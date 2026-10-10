@@ -3,25 +3,25 @@ import 'dart:developer';
 import 'package:bond/features/post/data/api.dart';
 import 'package:bond/features/post/data/models/post.dart';
 import 'package:bond_core/bond_core.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'list_state.dart';
 
+// Riverpod 3 retries a failed build() automatically (default policy kept).
 final postsProvider =
     AsyncNotifierProvider.autoDispose<PostController, ListState<Post>>(
-  () {
-    final scrollController = ScrollController();
-
-    return PostController(sl(), scrollController);
-  },
+  () => PostController(sl()),
 );
 
-class PostController extends AutoDisposeAsyncNotifier<ListState<Post>> {
-  PostController(this._api, this.scrollController) : super();
+class PostController extends AsyncNotifier<ListState<Post>> {
+  PostController(this._api);
 
   final PostsApi _api;
-  final ScrollController scrollController;
+
+  // Recreated on every build(): the notifier instance survives rebuilds and
+  // retries, while the previous controller is disposed with the old state.
+  late ScrollController scrollController;
 
   @override
   Future<ListState<Post>> build() async {
@@ -31,26 +31,31 @@ class PostController extends AutoDisposeAsyncNotifier<ListState<Post>> {
   }
 
   void _initialize() {
-    scrollController.addListener(_scrollControllerListener);
+    final controller = ScrollController()
+      ..addListener(_scrollControllerListener);
+    scrollController = controller;
     ref.onDispose(
       () {
-        scrollController.dispose();
-        scrollController.removeListener(_scrollControllerListener);
+        controller.removeListener(_scrollControllerListener);
+        controller.dispose();
       },
     );
   }
 
   void _loadMore() async {
-    if (!state.requireValue.hasMoreData) {
+    final current = state.requireValue;
+    if (!current.hasMoreData) {
       log('_loadMore no more data', name: 'PostController');
       return;
     }
-    final nextUrl = state.requireValue.data.links?.next;
-    state = AsyncData(state.requireValue.loading());
-    state = await AsyncValue.guard(() async {
+    final nextUrl = current.data.links?.next;
+    state = AsyncData(current.loading());
+    final result = await AsyncValue.guard(() async {
       final response = await _api.posts(nextUrl);
-      return state.requireValue.success(response);
+      return current.success(response);
     });
+    if (!ref.mounted) return;
+    state = result;
   }
 
   void _scrollControllerListener() {

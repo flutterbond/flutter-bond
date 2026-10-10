@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum Menu { theme, language, logout, notifications }
 
@@ -14,7 +14,9 @@ class BondPopupBondMenuItem extends PopupMenuItem<Menu> {
             children: [
               icon,
               const SizedBox(width: 8),
-              Text(title),
+              Flexible(
+                child: Text(title, overflow: TextOverflow.ellipsis),
+              ),
             ],
           ),
         );

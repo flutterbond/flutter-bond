@@ -1,5 +1,6 @@
+import 'package:bond/core/resources/app_keys.dart';
 import 'package:bond/features/post/presentations/providers/posts_provider.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'views/home_app_bar.dart';
@@ -12,16 +13,24 @@ class PostsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final postsState = ref.watch(postsProvider);
     final postsController = ref.read(postsProvider.notifier);
+    // Hero tags must be unique on the page, and a page can repeat a post
+    // (e.g. when the list shifts between requests): only the first animates.
+    final heroUuids = <String>{};
     return Scaffold(
+      key: AppKeys.postsPage,
       appBar: const HomeAppBar(),
       body: postsState.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => const Center(
+          key: AppKeys.postsLoading,
+          child: CircularProgressIndicator(),
+        ),
         data: (posts) =>
             SingleChildScrollView(
               controller: postsController.scrollController,
               child: Column(
                 children: [
                   GridView.count(
+                    key: AppKeys.postsGrid,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.all(16),
@@ -30,15 +39,23 @@ class PostsPage extends ConsumerWidget {
                     mainAxisSpacing: 6.0,
                     crossAxisSpacing: 6.0,
                     children: posts.data.data.map((post) {
-                      return PostItem(post: post);
+                      return HeroMode(
+                        enabled: heroUuids.add(post.uuid),
+                        child: PostItem(post: post),
+                      );
                     }).toList(),
                   ),
-                  if (posts.isLoading) const CircularProgressIndicator
-                      .adaptive(),
+                  if (posts.isLoading)
+                    const CircularProgressIndicator.adaptive(
+                      key: AppKeys.postsLoadingMore,
+                    ),
                 ],
               ),
             ),
-        error: (error, stackTrace) => Center(child: Text(error.toString())),
+        error: (error, stackTrace) => Center(
+          key: AppKeys.postsError,
+          child: Text(error.toString()),
+        ),
       ),
     );
   }

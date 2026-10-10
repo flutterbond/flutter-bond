@@ -1,8 +1,9 @@
 import 'package:bond/core/app_theme.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 ThemeData appLightThemeData() {
   return ThemeData(
+    useMaterial3: true,
     colorScheme: const ColorScheme(
       primaryContainer: Color.fromRGBO(50, 45, 120, 1),
       primary: Color.fromRGBO(50, 45, 120, 1),
@@ -24,9 +25,9 @@ ThemeData appLightThemeData() {
     ),
 
     /// AppBar theme
-    appBarTheme: AppBarTheme(
+    appBarTheme: AppBarThemeData(
       centerTitle: true,
-      color: Colors.white,
+      backgroundColor: Colors.white,
       elevation: 0,
       titleTextStyle: appTextTheme.headlineSmall?.copyWith(
         color: const Color.fromRGBO(50, 45, 120, 1),
@@ -41,12 +42,6 @@ ThemeData appLightThemeData() {
     ),
 
     /// Button theme
-    buttonTheme: const ButtonThemeData(
-      shape: RoundedRectangleBorder(),
-      disabledColor: Color.fromRGBO(34, 193, 224, 0.1),
-      buttonColor: Color.fromRGBO(34, 193, 224, 1),
-    ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(double.maxFinite, 48),
@@ -76,7 +71,7 @@ ThemeData appLightThemeData() {
       selectedItemColor: Color.fromRGBO(34, 193, 224, 1),
       unselectedItemColor: Colors.grey,
     ),
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme: InputDecorationThemeData(
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(
@@ -105,5 +100,3 @@ ThemeData appLightThemeData() {
     ),
   );
 }
-
-//

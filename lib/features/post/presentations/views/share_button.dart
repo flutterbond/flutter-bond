@@ -1,7 +1,7 @@
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_icons.dart';
 import 'package:bond_core/bond_core.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -29,6 +29,15 @@ class ShareButton extends StatelessWidget {
   }
 
   void _onShare(BuildContext context) {
-    Share.share(postImageUrl, subject: context.localizations.share_post_image);
+    // iPad anchors the share sheet to this rect.
+    final box = context.findRenderObject() as RenderBox?;
+    SharePlus.instance.share(
+      ShareParams(
+        text: postImageUrl,
+        subject: context.localizations.share_post_image,
+        sharePositionOrigin:
+            box == null ? null : box.localToGlobal(Offset.zero) & box.size,
+      ),
+    );
   }
 }

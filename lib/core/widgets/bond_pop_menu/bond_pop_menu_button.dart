@@ -1,8 +1,9 @@
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/resources/app_keys.dart';
 import 'package:bond/features/app/app_providers.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond_core/bond_core.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,12 +15,14 @@ class BondPopMenuButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return PopupMenuButton<Menu>(
-      onSelected: (Menu item) => _onSelected(ref, item),
+      key: AppKeys.menuButton,
+      onSelected: (Menu item) => _onSelected(context, ref, item),
       icon: const Icon(
         Icons.more_vert_rounded,
       ),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
         BondPopupBondMenuItem(
+          key: AppKeys.menuTheme,
           value: Menu.theme,
           icon: Icon(
             Icons.color_lens_rounded,
@@ -28,6 +31,7 @@ class BondPopMenuButton extends ConsumerWidget {
           title: context.localizations.popup_menu_theme,
         ),
         BondPopupBondMenuItem(
+          key: AppKeys.menuLanguage,
           value: Menu.language,
           icon: Icon(
             Icons.language,
@@ -56,26 +60,27 @@ class BondPopMenuButton extends ConsumerWidget {
     );
   }
 
-  void _onSelected(WidgetRef ref, Menu item) {
+  void _onSelected(BuildContext context, WidgetRef ref, Menu item) {
     switch (item) {
       case Menu.theme:
-        final theme = ref.read(themeProvider);
-        final newThemeMode =
-            theme == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+        // Flip the brightness on screen, also while following the system.
+        final newThemeMode = context.brightness == Brightness.dark
+            ? ThemeMode.light
+            : ThemeMode.dark;
         ref.read(themeProvider.notifier).update(newThemeMode);
         break;
       case Menu.language:
         final local = ref.read(localProvider);
-        final newLocale = local == const Locale('en')
-            ? const Locale('ar')
-            : const Locale('en');
+        final newLocale = local.languageCode == 'ar'
+            ? const Locale('en')
+            : const Locale('ar');
         ref.read(localProvider.notifier).update(newLocale);
         break;
       case Menu.logout:
-        ref.context.go('/login');
+        context.go('/login');
         break;
       case Menu.notifications:
-        ref.context.push('/notifications');
+        context.push('/notifications');
         break;
     }
   }

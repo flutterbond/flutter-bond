@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:bond/app/routes.dart';
+import 'package:bond/features/update_app/routes.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import 'models/current_version.dart';
@@ -34,7 +35,7 @@ class UpdateAppService {
   }
 
   void showForceUpdate(CurrentVersion remoteConfigVersion) {
-    goRouter.push('/update_app?=message${remoteConfigVersion.message}');
+    goRouter.push(updateAppLocation(remoteConfigVersion.message));
   }
 
   void showSoftUpdate() {
@@ -47,7 +48,7 @@ class UpdateAppService {
       remoteConfigVersion.platformVersion,
     );
     if (isSoftUpdateApp) {
-      goRouter.push('/soft_update?=message${remoteConfigVersion.message}');
+      goRouter.push(softUpdateLocation(remoteConfigVersion.message));
     }
   }
 

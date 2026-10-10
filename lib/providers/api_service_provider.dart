@@ -8,15 +8,18 @@ import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiServiceProvider extends ServiceProvider {
+  /// Dio options from the API configs; the timeouts are in milliseconds.
+  static BaseOptions baseOptions() => BaseOptions(
+        connectTimeout: Duration(milliseconds: config('CONNECT_TIMEOUT')),
+        sendTimeout: Duration(milliseconds: config('SEND_TIMEOUT')),
+        receiveTimeout: Duration(milliseconds: config('RECEIVE_TIMEOUT')),
+        receiveDataWhenStatusError: config('RECEIVE_DATA_WHEN_STATUS_ERROR'),
+        baseUrl: config('API_BASE_URL'),
+      );
+
   @override
   Future<void> register(GetIt it) async {
-    final baseOptions = BaseOptions(
-      connectTimeout: Duration(seconds: config('CONNECT_TIMEOUT')),
-      sendTimeout: Duration(seconds: config('SEND_TIMEOUT')),
-      receiveTimeout: Duration(seconds: config('RECEIVE_TIMEOUT')),
-      receiveDataWhenStatusError: config('RECEIVE_DATA_WHEN_STATUS_ERROR'),
-      baseUrl: config('API_BASE_URL'),
-    );
+    final baseOptions = ApiServiceProvider.baseOptions();
     Api.extraHeaders = () {
       return {
         if (Auth.check()) 'Authorization': 'Bearer ${Auth.token()}',
@@ -37,7 +40,8 @@ class ApiServiceProvider extends ServiceProvider {
       );
     }
     it.registerLazySingleton(() => dio);
-    it.registerLazySingleton(() => BondFire());
+    // BondFire is a plain class since bond_network 0.1.0; share one instance.
+    it.registerLazySingleton<BondFire>(BondFire.new);
     it.registerLazySingleton(() => ApiClient(it()));
   }
 }

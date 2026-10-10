@@ -16,7 +16,4 @@ ValidationError _$ValidationErrorFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ValidationErrorToJson(ValidationError instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'errors': instance.errors,
-    };
+    <String, dynamic>{'message': instance.message, 'errors': instance.errors};

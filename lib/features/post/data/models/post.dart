@@ -37,4 +37,9 @@ class Post extends Model {
 
   @override
   Map<String, dynamic> toJson() => _$PostToJson(this);
+
+  // Posts have no numeric id (always -1), so compare them by uuid. Riverpod 3
+  // only notifies when a state is != the previous one.
+  @override
+  List<Object?> get props => [uuid, updatedAt];
 }

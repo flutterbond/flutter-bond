@@ -6,10 +6,9 @@ part of 'user_meta.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserMeta _$UserMetaFromJson(Map<String, dynamic> json) => UserMeta(
-      token: json['token'] as String,
-    );
+UserMeta _$UserMetaFromJson(Map<String, dynamic> json) =>
+    UserMeta(token: json['token'] as String);
 
 Map<String, dynamic> _$UserMetaToJson(UserMeta instance) => <String, dynamic>{
-      'token': instance.token,
-    };
+  'token': instance.token,
+};

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AppImagesAssets {
   static const String logo = 'assets/images/app_logo.svg';

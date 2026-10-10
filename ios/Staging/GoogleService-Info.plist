@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- placeholder: built from the iOS options in lib/firebase_options_staging.dart (Firebase project flutter-bond-staging-7dd42, bundle id ps.app.bond.staging); replace with the real file from the Firebase console -->
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCz95QyOlPlhPWZFUrduUsS5Q8g5boiQgc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>390157281889</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ps.app.bond.staging</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-bond-staging-7dd42</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-bond-staging-7dd42.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:390157281889:ios:8c87b8875dcdd94aab9820</string>
+</dict>
+</plist>

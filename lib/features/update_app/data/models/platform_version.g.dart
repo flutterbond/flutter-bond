@@ -8,8 +8,8 @@ part of 'platform_version.dart';
 
 PlatformVersion _$PlatformVersionFromJson(Map<String, dynamic> json) =>
     PlatformVersion(
-      minVersion: json['min_version'] as int,
-      maxVersion: json['max_version'] as int,
+      minVersion: (json['min_version'] as num).toInt(),
+      maxVersion: (json['max_version'] as num).toInt(),
       message: json['message'] as String,
     );
 
