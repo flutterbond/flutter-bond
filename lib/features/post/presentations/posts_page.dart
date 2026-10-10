@@ -13,6 +13,9 @@ class PostsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final postsState = ref.watch(postsProvider);
     final postsController = ref.read(postsProvider.notifier);
+    // Hero tags must be unique on the page, and a page can repeat a post
+    // (e.g. when the list shifts between requests): only the first animates.
+    final heroUuids = <String>{};
     return Scaffold(
       key: AppKeys.postsPage,
       appBar: const HomeAppBar(),
@@ -36,7 +39,10 @@ class PostsPage extends ConsumerWidget {
                     mainAxisSpacing: 6.0,
                     crossAxisSpacing: 6.0,
                     children: posts.data.data.map((post) {
-                      return PostItem(post: post);
+                      return HeroMode(
+                        enabled: heroUuids.add(post.uuid),
+                        child: PostItem(post: post),
+                      );
                     }).toList(),
                   ),
                   if (posts.isLoading) const CircularProgressIndicator
