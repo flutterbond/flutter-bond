@@ -50,3 +50,7 @@ mason-lock.json
 env.json
 env.staging.json
 /env.staging.json
+
+# FVM (version pinned in .fvmrc) and local git worktrees
+.fvm/
+.worktrees/
