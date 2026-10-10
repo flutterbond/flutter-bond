@@ -54,3 +54,6 @@ env.staging.json
 # FVM (version pinned in .fvmrc) and local git worktrees
 .fvm/
 .worktrees/
+
+# Local path overrides for unpublished bond-core packages
+pubspec_overrides.yaml
