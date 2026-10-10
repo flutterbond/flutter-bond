@@ -14,6 +14,11 @@ analyzer:
     # Generated code.
     - lib/l10n/**
     - "**/*.g.dart"
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - macos/**
 
 linter:
   # The lint rules applied to this project can be customized in the
