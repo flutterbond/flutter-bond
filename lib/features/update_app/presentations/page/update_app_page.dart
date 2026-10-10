@@ -1,8 +1,8 @@
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/app_review.dart';
 import 'package:bond/core/app_widgets.dart';
 import 'package:bond/core/resources/app_assets.dart';
 import 'package:material_ui/material_ui.dart';
-import 'package:open_store/open_store.dart';
 
 class UpdateAppPage extends StatelessWidget {
   final String message;
@@ -63,11 +63,5 @@ class UpdateAppPage extends StatelessWidget {
     );
   }
 
-  void _onUpdate() {
-    //TODO::CHANGE appStoreId
-    OpenStore.instance.open(
-      appStoreId: '6444267986',
-      androidAppBundleId: 'ps.app.bond',
-    );
-  }
+  void _onUpdate() => AppReviewHelper.openStoreListing();
 }

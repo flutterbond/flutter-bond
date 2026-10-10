@@ -1,11 +1,11 @@
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/app_review.dart';
 import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/resources/app_icons.dart';
 import 'package:bond/core/widgets/app_button.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:open_store/open_store.dart';
 
 class SoftUpdatePage extends StatelessWidget {
   const SoftUpdatePage({super.key, required this.message});
@@ -72,11 +72,5 @@ class SoftUpdatePage extends StatelessWidget {
     );
   }
 
-  void onUpdate() {
-    // //TODO:: CHANGE appStoreId
-    OpenStore.instance.open(
-      appStoreId: '6444267986',
-      androidAppBundleId: 'ps.app.bond',
-    );
-  }
+  void onUpdate() => AppReviewHelper.openStoreListing();
 }
