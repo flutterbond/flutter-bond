@@ -1,5 +1,5 @@
 import 'package:bond/core/app_localizations.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 
 class MainPage extends StatelessWidget {

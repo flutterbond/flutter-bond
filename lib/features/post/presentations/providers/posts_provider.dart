@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:bond/features/post/data/api.dart';
 import 'package:bond/features/post/data/models/post.dart';
 import 'package:bond_core/bond_core.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'list_state.dart';

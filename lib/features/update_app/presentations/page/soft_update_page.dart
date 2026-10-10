@@ -2,7 +2,7 @@ import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/resources/app_icons.dart';
 import 'package:bond/core/widgets/app_button.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:open_store/open_store.dart';

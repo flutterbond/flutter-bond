@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'app_text_theme.dart';
 
 ThemeData appDarkThemeData() {
   return ThemeData(
+    useMaterial3: true,
     colorScheme: const ColorScheme(
       primary: Color.fromRGBO(50, 45, 120, 1),
       secondary: Color.fromRGBO(34, 193, 224, 1),
@@ -24,9 +25,9 @@ ThemeData appDarkThemeData() {
     ),
 
     /// AppBar theme
-    appBarTheme: AppBarTheme(
+    appBarTheme: AppBarThemeData(
       centerTitle: true,
-      color: const Color.fromRGBO(9, 35, 55, 1),
+      backgroundColor: const Color.fromRGBO(9, 35, 55, 1),
       elevation: 0,
       titleTextStyle: appTextTheme.headlineSmall?.copyWith(
         color: const Color.fromRGBO(34, 193, 224, 1),
@@ -34,7 +35,7 @@ ThemeData appDarkThemeData() {
       ),
     ),
 
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme: const TabBarThemeData(
       labelColor: Color.fromRGBO(34, 193, 224, 1),
       unselectedLabelColor: Colors.white,
     ),
@@ -46,12 +47,6 @@ ThemeData appDarkThemeData() {
     ),
 
     /// Button theme
-    buttonTheme: const ButtonThemeData(
-      shape: RoundedRectangleBorder(),
-      disabledColor: Color.fromRGBO(34, 193, 224, 0.1),
-      buttonColor: Color.fromRGBO(34, 193, 224, 1),
-    ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(double.maxFinite, 48),
@@ -77,7 +72,7 @@ ThemeData appDarkThemeData() {
     /// Text theme
     textTheme: appTextTheme,
 
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme: InputDecorationThemeData(
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(
@@ -108,6 +103,6 @@ ThemeData appDarkThemeData() {
       ),
     ),
     bottomAppBarTheme:
-        const BottomAppBarTheme(color: Color.fromRGBO(9, 35, 55, 1)),
+        const BottomAppBarThemeData(color: Color.fromRGBO(9, 35, 55, 1)),
   );
 }

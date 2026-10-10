@@ -2,7 +2,7 @@ import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/widgets/bond_pop_menu/bond_pop_menu_button.dart';
 import 'package:bond/features/auth/presentation/views/login/login_form.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'views/login/new_account_view.dart';
