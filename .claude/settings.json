@@ -1,12 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "enabledMcpjsonServers": ["dart"],
+  "enabledMcpjsonServers": ["dart", "bond"],
   "permissions": {
     "allow": [
       "mcp__dart__analyze_files",
       "mcp__dart__read_package_uris",
       "mcp__dart__rip_grep_packages",
-      "mcp__dart__pub_dev_search"
+      "mcp__dart__pub_dev_search",
+      "mcp__bond__packages",
+      "mcp__bond__package_overview",
+      "mcp__bond__api",
+      "mcp__bond__migration"
     ]
   }
 }

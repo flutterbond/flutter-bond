@@ -4,6 +4,11 @@
       "type": "stdio",
       "command": "sh",
       "args": ["tool/mcp/dart.sh", "mcp-server"]
+    },
+    "bond": {
+      "type": "stdio",
+      "command": "sh",
+      "args": ["tool/mcp/bond.sh"]
     }
   }
 }
