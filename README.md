@@ -78,6 +78,22 @@ Projects created with `bond create project` inherit this setup.
 
 Upgrading a v1 app: see [MIGRATION.md](MIGRATION.md).
 
+### Updating a project to a newer template
+
+Your project is a copy of this template, so template changes (iOS and Android config, scripts,
+tooling) do not arrive with `flutter pub upgrade`; the bond_* packages do. `bond upgrade`
+(bond_cli 0.3.0 or newer) brings the template changes in, even though your project was renamed:
+
+```sh
+bond upgrade --dry-run     # what would change, nothing is written
+bond upgrade               # to the newest tag, on a new branch bond/upgrade-<version>
+```
+
+Your files are merged line by line; conflicts get `<<<<<<<` markers, and files you deleted stay
+deleted. It needs `bond.yaml` (written by `bond create project`; older projects pass
+`--from v2.0.0` once). Then run `flutter pub upgrade`, `dart fix --apply` for renamed APIs, and read
+[MIGRATION.md](MIGRATION.md).
+
 ## Learning Flutter Bond
 
 Flutter Bond comes with comprehensive documentation to get you up and running in no time. You can refer to our [Bond Docs Repo](https://github.com/flutterbond/bond-docs) for detailed guides and tutorials.

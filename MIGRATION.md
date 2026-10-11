@@ -120,9 +120,15 @@ Copy the `android/` folder of v2 and re-apply your app id and signing:
 
 ## v2.0.0 → v2.1.0
 
-v2.1.0 only adds the Claude Code MCP setup; app code and packages are unchanged. To adopt it, copy
-`.mcp.json`, `tool/mcp/` and `.claude/settings.json` from the template and install the CLI once with
-`dart install bond_cli` (0.2.0 or newer). See "Claude Code and MCP" in the README.
+v2.1.0 only adds the Claude Code MCP setup; app code and packages are unchanged. Upgrade with
+`bond upgrade --from v2.0.0` (bond_cli 0.3.0 or newer; see "Updating a project to a newer template"
+in the README), or copy `.mcp.json`, `tool/mcp/` and `.claude/settings.json` from the template by
+hand, and install the CLI once with `dart install bond_cli`. See "Claude Code and MCP" in the README.
+
+## Upgrading between v2.x versions
+
+Run `bond upgrade --dry-run`, then `bond upgrade`. It merges the template changes of each version
+into your project on a new branch; the version-specific notes in this file tell you what else to do.
 
 ## Rollback
 
