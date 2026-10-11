@@ -52,6 +52,15 @@ flutter run --flavor Production --dart-define-from-file=env.json
 - Android release builds are signed with `android/key.properties` if present, otherwise with the
   debug keys.
 
+## Claude Code and MCP
+
+`.mcp.json` registers the official Dart & Flutter MCP server (`dart`): analyzer, pub, tests, reading
+and searching the source of every dependency (including the bond_* packages), and tools for the running
+app. It starts through `tool/mcp/dart.sh`, which always uses the Flutter version pinned in `.fvmrc`
+(3.47.7) and never another Flutter on your PATH. Projects created with `bond create project` inherit
+this setup. Claude Code asks once to approve the project's MCP servers; check them with
+`claude mcp list`.
+
 ## Versions
 
 | Template | bond_* packages | bond_cli | Flutter |
