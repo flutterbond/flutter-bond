@@ -29,8 +29,8 @@ Requirements: Flutter 3.47.7 (Dart 3.13.5), Java 17,
 Xcode 26 (iOS 15+), and `dart pub global activate flutterfire_cli` for iOS archives.
 
 ```sh
-dart pub global activate bond_cli
-bond create project            # clones this template at v2.0.0 and renames it
+dart install bond_cli
+bond create project            # clones this template at v2.1.0 and renames it
 ```
 
 Or clone this repository and set it up by hand:
@@ -52,12 +52,29 @@ flutter run --flavor Production --dart-define-from-file=env.json
 - Android release builds are signed with `android/key.properties` if present, otherwise with the
   debug keys.
 
+## Claude Code and MCP
+
+`.mcp.json` registers two MCP servers. Claude Code asks once to approve them; check them with
+`claude mcp list`.
+
+- `dart`: the official Dart & Flutter MCP server: analyzer, pub, tests, reading and searching the
+  source of every dependency (including the bond_* packages), and tools for the running app.
+  It starts through `tool/mcp/dart.sh`, which always uses the Flutter version pinned in `.fvmrc`
+  (3.47.7) and never another Flutter on your PATH.
+- `bond`: the Bond MCP server from bond_cli: what each bond_* package does, its public API read from
+  the version this project uses, migration notes, and the `bond create` generators (model, widget,
+  service provider, project).
+  Install it once with `dart install bond_cli` (Dart 3.13 or newer); `tool/mcp/bond.sh` starts it.
+
+Projects created with `bond create project` inherit this setup.
+
 ## Versions
 
 | Template | bond_* packages | bond_cli | Flutter |
 |---|---|---|---|
 | `v1.0.0` (legacy) | bond_core 0.0.3 … bond_form_riverpod 0.0.17+19 | 0.0.4+3 | 3.19 – 3.27 |
 | `v2.0.0` | bond_core, cache, network, form, form_riverpod 0.1.x; notifications, app_analytics 0.2.x | 0.1.x | 3.47.7+ |
+| `v2.1.0` | same as v2.0.0; adds the Claude Code MCP setup (no app code changes) | 0.2.x | 3.47.7+ |
 
 Upgrading a v1 app: see [MIGRATION.md](MIGRATION.md).
 

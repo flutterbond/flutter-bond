@@ -4,7 +4,7 @@ v2.0.0 moves the template to **Flutter 3.47.7 / Dart 3.13.5** with Riverpod 3, `
 go_router 18, the Firebase 4.x line, Android Gradle Plugin 9.1 (Kotlin DSL) and iOS 15 with the
 UIScene lifecycle. The legacy template stays available as the `v1.0.0` tag.
 
-**Recommended:** start a fresh project with `bond create project` (bond_cli 0.1.x clones `v2.0.0`)
+**Recommended:** start a fresh project with `bond create project` (bond_cli 0.2.x clones `v2.1.0`)
 and move your features over. Upgrading an existing v1 app in place works too; follow the steps in
 order.
 
@@ -14,6 +14,7 @@ order.
 |---|---|---|---|
 | `v1.0.0` | bond_core 0.0.3, bond_network ≤ 0.0.11+11, bond_form ≤ 0.0.22+19, bond_form_riverpod ≤ 0.0.17+19, notifications/analytics 0.1.0 | 0.0.4+3 (or 0.1.x with `--ref v1.0.0`) | 3.19 – 3.27 |
 | `v2.0.0` | core, cache, network, form, form_riverpod 0.1.x; notifications, app_analytics 0.2.x | 0.1.x | 3.47.7+ |
+| `v2.1.0` | same as v2.0.0 | 0.2.x | 3.47.7+ |
 
 ## 1. Toolchain
 
@@ -116,6 +117,12 @@ Copy the `android/` folder of v2 and re-apply your app id and signing:
   for push. Set your `DEVELOPMENT_TEAM` to sign for devices.
 - `ios/Staging/GoogleService-Info.plist` is a placeholder built from `lib/firebase_options_staging.dart`:
   replace it with the file from the Firebase console.
+
+## v2.0.0 → v2.1.0
+
+v2.1.0 only adds the Claude Code MCP setup; app code and packages are unchanged. To adopt it, copy
+`.mcp.json`, `tool/mcp/` and `.claude/settings.json` from the template and install the CLI once with
+`dart install bond_cli` (0.2.0 or newer). See "Claude Code and MCP" in the README.
 
 ## Rollback
 

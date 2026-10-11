@@ -57,3 +57,7 @@ env.staging.json
 
 # Local path overrides for unpublished bond-core packages
 pubspec_overrides.yaml
+
+# Claude Code: personal files (the shared .claude/ and .mcp.json are committed)
+CLAUDE.local.md
+.claude/settings.local.json
