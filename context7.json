@@ -1,7 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "Flutter Bond template",
-  "description": "Flutter starter template of the Flutter Bond framework (v2.0.0, Flutter 3.47.7): feature modules with service providers, Riverpod 3, go_router, BondFire networking, staging/production flavors, Firebase setup, English/Arabic localization, iOS and Android projects.",
+  "description": "Flutter starter template of the Flutter Bond framework (v2.1.0, Flutter 3.47.7): feature modules with service providers, Riverpod 3, go_router, BondFire networking, staging/production flavors, Firebase setup, English/Arabic localization, iOS and Android projects.",
   "excludeFolders": [
     "android",
     "ios",
@@ -11,7 +11,7 @@
     ".github"
   ],
   "rules": [
-    "Create projects from the template with bond_cli: dart pub global activate bond_cli, then bond create project --projectName my_app --bundleId com.example.app (clones tag v2.0.0).",
+    "Create projects from the template with bond_cli: dart install bond_cli, then bond create project --projectName my_app --bundleId com.example.app (clones tag v2.1.0).",
     "Every run or build needs --flavor (staging/production on Android, Staging/Production on iOS) and --dart-define-from-file=env.json or env.staging.json; API timeouts in the env files are milliseconds.",
     "Features live in lib/features/<feature>/ with data/ (api.dart, models/), presentation/, <feature>_service_provider.dart and routes.dart; register the provider in lib/app/app.dart and spread the routes in lib/app/routes.dart.",
     "iOS uses Swift Package Manager only (no CocoaPods); the app is universal (iPhone and iPad).",
